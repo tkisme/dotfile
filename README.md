@@ -24,3 +24,10 @@ $ ./deploytocloud
 
 proxy.user.ini
 just for someone still use goagent
+
+
+startss
+simple way to control ss
+```
+$./startss start
+```

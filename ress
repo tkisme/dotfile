@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo kill -9 `ps aux|grep [s]s-server|awk '{print $2}'` >/dev/null 2>&1
+sleep 1
+nohup sudo ss-server --fast-open -A -c ~/venv/config.json --fast-open >> ~/shadow.log &

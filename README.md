@@ -19,7 +19,10 @@ $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools
 deploytocloud
 you need a foregin cloud to run it remind to change the rsa key in deploytocloud and update password in autoss
 ```
-$ ./deploytocloud
+$ sudo ./deploytocloud
+$ wget https://raw.githubusercontent.com/tkisme/dotfile/master/ss_sysctl
+$ sudo cat ss_sysctl >> /etc/sysctl.d/local.conf
+$ sudo sysctl -p
 ```
 
 proxy.user.ini

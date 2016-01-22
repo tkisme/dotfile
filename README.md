@@ -23,6 +23,8 @@ $ sudo ./deploytocloud
 $ wget https://raw.githubusercontent.com/tkisme/dotfile/master/ss_sysctl
 $ sudo cat ss_sysctl >> /etc/sysctl.d/local.conf
 $ sudo sysctl -p
+# if need restart
+$ sudo ./ress
 ```
 
 proxy.user.ini

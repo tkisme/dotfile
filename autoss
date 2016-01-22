@@ -1,0 +1,38 @@
+#!/bin/bash
+#wget -O - |sudo bash
+apt-get update
+#apt-get install language-pack-zh-hans python-pip gcc build-essential make apache2 git autoconf libtool libssl-dev gawk debhelper -y
+apt-get install language-pack-zh-hans gcc build-essential make apache2 git autoconf libtool libssl-dev -y
+#pip install shadowsocks
+#dpkg-buildpackage -us -uc
+#wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz -O LATEST.tar.gz
+#tar -xvf LATEST.tar.gz
+#cd libsodium*
+#./configure
+#make && make install
+#cd 
+cat > config.json <<EOF
+{
+    "server":"0.0.0.0",
+    "server_port":443,
+    "local_address":"127.0.0.1",
+    "local_port":8080,
+    "password":"tkisme2013@gmail.com",
+    "timeout":600,
+    "fast_open": true,
+    "method":"chacha20"
+}
+EOF
+ldconfig
+wget https://gist.githubusercontent.com/tkisme/9966f635cdfb19564f32/raw/f3c30762703c78b41c4392c18692748d305c1a4b/limits.conf
+cat limits.conf >> /etc/security/limits.conf
+rm limits.conf
+wget https://gist.githubusercontent.com/tkisme/97b57c42c93829f4df63/raw/a473f0e2ececa9901fe339c21df0319ef037ce09/sysctl.conf
+mv sysctl.conf /etc/sysctl.d/99-nettweak.conf
+/sbin/sysctl -p
+git clone --depth 1 https://github.com/shadowsocks/shadowsocks-libev
+cd shadowsocks-libev
+./configure && make && make install
+cd
+#ss-server -c config.json -d start
+nohup ss-server -A -c config.json -f /tmp/shadowsocks.pid >> /var/ss.log &

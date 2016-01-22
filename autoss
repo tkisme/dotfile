@@ -1,5 +1,5 @@
 #!/bin/bash
-#wget -O - |sudo bash
+#wget -O - https://raw.githubusercontent.com/tkisme/dotfile/master/autoss|sudo bash
 apt-get update
 #apt-get install language-pack-zh-hans python-pip gcc build-essential make apache2 git autoconf libtool libssl-dev gawk debhelper -y
 apt-get install language-pack-zh-hans gcc build-essential make apache2 git autoconf libtool libssl-dev -y
@@ -17,7 +17,7 @@ cat > config.json <<EOF
     "server_port":443,
     "local_address":"127.0.0.1",
     "local_port":8080,
-    "password":"tkisme2013@gmail.com",
+    "password":"youpassword",
     "timeout":600,
     "fast_open": true,
     "method":"chacha20"

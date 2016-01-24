@@ -10,7 +10,9 @@ $ vim
 :BundleInstall
 ```
 
-.zshrc
+due to [zsh config path](http://zshwiki.org/home/config/files)
+
+.zshrc and .zprofile
 zsh config file and you need oh my zsh
 ```
 $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
